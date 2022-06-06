@@ -17,6 +17,7 @@ const server = http.createServer((req,resp) => {
    * url: '/zdeals/143502'
    * 3 Places it had printed these
    */
+    // console.log(req.url)
     resp.setHeader('Content-Type','text/html')
     resp.end('<h1>This is Hrithik 007</h1>')
 })
