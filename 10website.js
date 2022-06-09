@@ -1,5 +1,6 @@
 const res = require('express/lib/response')
 const http = require('http')
+const fs = require('fs')
 
 // lets Create a new HTTP server with Node JS
 
@@ -19,6 +20,13 @@ const server = http.createServer((req, resp) => {
     else if (req.url == '/hbm') {
         resp.statusCode = 200;
         resp.end('<h1>this is /hbm</h1>')
+    }
+    
+    else if (req.url == '/html') {
+        // Note You can add href = '/html' for our buttons in index.html to link the pages together but to increase readibility we use EXPRESS instead of NODE JS for Backend Linking of Pages & all
+        resp.statuCode = 200;
+        const data = fs.readFileSync('index.html');
+        resp.end(data.toString());
     }
     else {
         resp.statusCode = 404;
